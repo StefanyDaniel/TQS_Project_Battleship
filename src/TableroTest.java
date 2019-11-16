@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 class TableroTest {
 
 	Tablero t = new Tablero();
+	int numFilas=10;
+	int numColumnas=10;
 
 	@Test
 	public void testCrearTablero() {
-		int numFilas=10;
-		int numColumnas=10;
 		String[][] tableroBarcosEsperado = {
 				{"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "},
 				{"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "},
