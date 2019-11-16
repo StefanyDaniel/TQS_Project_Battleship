@@ -37,7 +37,7 @@ class TableroTest {
 				{"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "B4"},
 				{"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "B4"},
 				{"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "B4"},
-				{"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "B4"},
+				{"  ", "  ", "  ", "B5", "B5", "B5", "  ", "  ", "  ", "B4"},
 				{"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "B4"},
 				{"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "B4"},
 				{"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "B3"},
@@ -48,6 +48,7 @@ class TableroTest {
 		t.colocarBarco(9, 4, 'l', 5, "B2");
 		t.colocarBarco(9, 9, 'u', 3, "B3");
 		t.colocarBarco(0, 9, 'd', 7, "B4");
+		t.colocarBarco(4, 5, 'l', 3, "B5");
 		String[][] tableroBarcos=t.getTablero();
 		for(int i=0;i<numFilas;i++) {
 			for(int j=0;j<numColumnas;j++) {
