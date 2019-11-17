@@ -18,6 +18,10 @@ public class Tablero {
 		return tablero;
 	}
 	
+	public void setTablero(String[][] t) {
+		tablero=t;
+	}
+	
 	public void colocarBarco(int fila, int columna, char orientacion, int longitud, String alias) {
 		switch(orientacion) {
 		case 'u':
