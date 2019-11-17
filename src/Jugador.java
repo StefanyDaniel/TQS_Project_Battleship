@@ -36,8 +36,8 @@ public class Jugador {
 				int fila = coordenadas.getFila();
 				int columna = coordenadas.getColumnaInt();
 				char orientacion = coordenadas.getOrientacion();
-				if(Comprobacion.isOrientacionCorrecta(configuracionBarcos, fila, columna, orientacion, barco.getLongitud())) {
-					configuracionBarcos.colocarBarco(fila, columna, orientacion, barco.getLongitud(), barco.getAlias());
+				if(Comprobacion.isOrientacionCorrecta(configuracionBarcos, fila - 1, columna, orientacion, barco.getLongitud())) {
+					configuracionBarcos.colocarBarco(fila - 1, columna, orientacion, barco.getLongitud(), barco.getAlias());
 					barcoColocado = true;
 				}
 			} while(!barcoColocado);
@@ -61,6 +61,32 @@ public class Jugador {
 		vida = barcosRestantes;
 	}
 	
+	public boolean disparar(Jugador jugadorEnemigo) {
+		boolean disparoRealizado = false;
+		int fila = -1;
+		int columna = -1;
+		
+		registroDisparos.mostrar();
+		configuracionBarcos.mostrar();
+		do {
+			System.out.println("Jugador " + id + ", introduce las coordenas de disparo");
+			coordenadas.setFila();
+			coordenadas.setColumna();
+			fila = coordenadas.getFila();
+			columna = coordenadas.getColumnaInt();
+		} while(!registroDisparos.marcarImpacto(jugadorEnemigo.configuracionBarcos, jugadorEnemigo.getBarcos(), fila - 1, columna));
+		disparoRealizado = true;
+		actualizarVida(jugadorEnemigo);
+		registroDisparos.mostrar();
+		configuracionBarcos.mostrar();
+		
+		return disparoRealizado;
+	}
+	
+	public void setVida(int v) {
+		vida=v;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -79,10 +105,6 @@ public class Jugador {
 	
 	public int getVida() {
 		return vida;
-	}
-	
-	public void setVida(int v) {
-		vida=v;
 	}
 }
 	
