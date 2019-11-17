@@ -1,13 +1,14 @@
 
 public class MockJugador extends Jugador{
-		
 	private int id;
 	private int vida=5;
 	private Tablero t;
 	
-	public MockJugador(int idMock){
+	public MockJugador(int idMock) {
+		super(idMock);
 		id=idMock;
 		t=new Tablero();
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
