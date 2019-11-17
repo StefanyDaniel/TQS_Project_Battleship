@@ -42,4 +42,23 @@ public class Tablero {
 			break;
 		}
 	}
+	
+	public void mostrar() {
+		System.out.println("----------------------------------");
+		System.out.println("|  | A| B| C| D| E| F| G| H| I| J|");
+		System.out.println("----------------------------------");
+		for(int i = 0; i < numeroFilas; i++) {
+			if(i != 9) {
+				System.out.print("| " + (i + 1));
+			}
+			else {
+				System.out.print("|" + (i + 1));
+			}
+			for(int j = 0; j < numeroColumnas; j++) {
+				System.out.print("|" + tablero[i][j]);
+			}
+			System.out.println("|");
+			System.out.println("----------------------------------");
+		}
+	}
 }
