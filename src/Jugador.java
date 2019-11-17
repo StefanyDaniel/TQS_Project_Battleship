@@ -80,6 +80,14 @@ public class Jugador {
 	public int getVida() {
 		return vida;
 	}
+	
+	public void setVida(int v) {
+		vida=v;
+	}
+	
+	public void disparar(Jugador enemigo) {
+		
+	}
 }
 	
 	

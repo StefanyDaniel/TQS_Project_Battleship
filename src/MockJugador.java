@@ -19,8 +19,8 @@ public class MockJugador extends Jugador{
 	@Override
 	public void setCoordenadas(Coordenadas c) {}
 
-
-	public void disparar(MockJugador jugadorEnemigo) {
+	@Override
+	public void disparar(Jugador jugadorEnemigo) {
 		int v=jugadorEnemigo.getVida();
 		v--;
 		jugadorEnemigo.setVida(v);
