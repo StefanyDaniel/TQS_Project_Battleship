@@ -5,6 +5,7 @@ public class Partida {
 	private int enemigo;
 	private Jugador[] jugador = new Jugador[2];
 	private Coordenadas coordenadas;
+	private boolean error;
 	
 	public Partida(char opcionMenu) {
 		opcion = opcionMenu;
@@ -13,6 +14,7 @@ public class Partida {
 		coordenadas = new EscanearCoordenadas();
 		Jugador j1 = new Jugador(1);
 		Jugador j2 = new Jugador(2);
+		error = false;
 		
 	}
 	
@@ -34,7 +36,10 @@ public class Partida {
 				System.out.println("Configurando coordenadas de disparo...");
 				j.disparar(jugador[enemigo]);
 				cambiarTurno();
-			} while(!isFinalPartida());
+			} while(!isFinalPartida() || error);
+		}
+		if(error) {
+			System.out.println("Partida acabada per Error");
 		}
 	}
 	
@@ -55,5 +60,22 @@ public class Partida {
 	
 	public int getTEnemigo() {
 		return enemigo;
+	}
+	
+	public boolean isFinalPartida() {
+		for(Jugador j:jugador) {
+			if(j.getVida()>=0 && j.getVida()<=5) {
+				if(j.getVida()==0) {
+					System.out.println("Fin de la partida!");
+					System.out.println("Ha ganado el jugador " + j.getId());
+					return true;
+				}
+			}
+			else {
+				error = true;
+				System.out.println("Error en la vida de Jugador");
+			}
+		}
+		return true;
 	}
 }
