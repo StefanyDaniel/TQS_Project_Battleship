@@ -16,4 +16,9 @@ public class PartidaTest {
 		assertEquals(j1.getVida(),1);
 		assertEquals(j2.getVida(),0);
 	}
+	
+	@Test
+	public void testCanviaTorn() {
+		
+	}
 }
