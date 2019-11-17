@@ -164,12 +164,13 @@ class TableroTest {
 		assertEquals(H5,true);
 		assertEquals(t.getTablero()[4][4]," H");
 		assertEquals(t.getTablero()[4][5]," H");
-		boolean I6=t.marcarImpacto(tablero, barcosEnemigo, -1, 11);
+		boolean I6=t.marcarImpacto(tablero, barcosEnemigo, -1, 0);
 		assertEquals(I6,false);
 		boolean I7=t.marcarImpacto(tablero, barcosEnemigo, 4, 9);
 		assertEquals(I7,true);
 		boolean I8=t.marcarImpacto(tablero, barcosEnemigo, 0, 5);
 		assertEquals(I8,true);
-		t.mostrar();	
+		boolean I9=t.marcarImpacto(tablero, barcosEnemigo, 0, -1);
+		assertEquals(I9,false);
 	}
 }
