@@ -30,13 +30,13 @@ public class Partida {
 			jugador[1].setCoordenadas(coordenadas);
 			jugador[0].colocarBarcos();
 			jugador[1].colocarBarcos();
-			do {
+			while(!isFinalPartida() || error) {
 				j=jugador[turno];
 				System.out.println("Te toca jugador " + this.jugador[turno].getId());
 				System.out.println("Configurando coordenadas de disparo...");
 				j.disparar(jugador[enemigo]);
 				cambiarTurno();
-			} while(!isFinalPartida() || error);
+			}
 		}
 		if(error) {
 			System.out.println("Partida acabada per Error");
@@ -63,19 +63,25 @@ public class Partida {
 	}
 	
 	public boolean isFinalPartida() {
+		boolean isfinal = false;
 		for(Jugador j:jugador) {
 			if(j.getVida()>=0 && j.getVida()<=5) {
 				if(j.getVida()==0) {
+					if(isfinal) {
+						error = true;
+						return false;
+					}
 					System.out.println("Fin de la partida!");
 					System.out.println("Ha ganado el jugador " + j.getId());
-					return true;
+					isfinal=true;
 				}
 			}
 			else {
 				error = true;
 				System.out.println("Error en la vida de Jugador");
+				return false;
 			}
 		}
-		return true;
+		return isfinal;
 	}
 }
