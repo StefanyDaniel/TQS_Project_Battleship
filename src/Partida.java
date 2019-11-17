@@ -37,4 +37,23 @@ public class Partida {
 			} while(!isFinalPartida());
 		}
 	}
+	
+	public void cambiarTurno() {
+		if(turno == 0) {
+			turno = 1;
+			enemigo = 0;
+		}
+		else {
+			turno = 0;
+			enemigo = 1;
+		}
+	}
+	
+	public int getTurno() {
+		return turno;
+	}
+	
+	public int getTEnemigo() {
+		return enemigo;
+	}
 }
