@@ -29,15 +29,20 @@ public class PartidaTest {
 		assertEquals(0,t);
 		assertEquals(1,e);
 		p.cambiarTurno();
+		t = p.getTurno();
+		e = p.getTEnemigo();
 		assertEquals(1,t);
 		assertEquals(0,e);
 		p.cambiarTurno();
+		t = p.getTurno();
+		e = p.getTEnemigo();
 		assertEquals(0,t);
 		assertEquals(1,e);
 	}
 	
 	@Test
 	public void testFinalPartida() {
+		p.setJugadors(j1, j2);
 		boolean f = p.isFinalPartida();
 		assertEquals(false,f);
 		j1.setVida(0);
@@ -72,6 +77,10 @@ public class PartidaTest {
 		j2.setVida(6);
 		boolean f8 = p.isFinalPartida();
 		assertEquals(false,f8);
+		j1.setVida(0);
+		j2.setVida(0);
+		boolean f9 = p.isFinalPartida();
+		assertEquals(false,f9);
 	}
 
 }
