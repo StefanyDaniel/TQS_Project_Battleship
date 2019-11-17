@@ -19,8 +19,7 @@ public class Menu {
 			
 			switch(opcion) {
 			case '1':
-				//Empezar partida
-				
+				Partida p = new Partida(opcion);
 				break;
 				
 			case '2':
