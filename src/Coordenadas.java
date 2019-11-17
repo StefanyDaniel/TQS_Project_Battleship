@@ -13,8 +13,4 @@ public interface Coordenadas {
 	public int getColumnaInt();
 	
 	public char getOrientacion();
-
-	char getColumnasDisparoChar();//return para hacer test de disparos
-
-	int getColumnaDisparoInt();//return para hacer test de disparos
 }
