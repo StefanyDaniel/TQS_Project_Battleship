@@ -119,5 +119,57 @@ class TableroTest {
 		t.mostrar();
 		assertEquals(resultado,outContent.toString());
 	}
-
+	
+	@Test
+	public void testMarcarImpacto() {
+		Tablero tablero=new Tablero();
+		Barco[] barcosEnemigo = new Barco[] {
+                new Barco("Barco", 5),
+                new Barco("Barco", 4),
+                new Barco("Barco", 3),
+                new Barco("CBarco", 3),
+                new Barco("Barco", 2)
+        };
+		tablero.colocarBarco(0, 0, 'd', 5, "B5");
+		tablero.colocarBarco(9, 0, 'r', 4, "B4");
+		tablero.colocarBarco(9, 9, 'u', 3, "B3");
+		tablero.colocarBarco(0, 9, 'l', 3, "C3");
+		tablero.colocarBarco(4, 4, 'r', 2, "B2");
+		
+		boolean I=t.marcarImpacto(tablero, barcosEnemigo, 0, 0);
+		assertEquals(I,true);
+		int V=barcosEnemigo[0].getVida();
+		assertEquals(V,4);
+		boolean I1=t.marcarImpacto(tablero, barcosEnemigo, 9, 9);
+		assertEquals(I1,true);
+		int V1=barcosEnemigo[2].getVida();
+		assertEquals(V1,2);
+		boolean I2=t.marcarImpacto(tablero, barcosEnemigo, 9, 0);
+		assertEquals(I2,true);
+		int V2=barcosEnemigo[1].getVida();
+		assertEquals(V2,3);
+		boolean I3=t.marcarImpacto(tablero, barcosEnemigo, 4, 4);
+		assertEquals(I3,true);
+		int V3=barcosEnemigo[4].getVida();
+		assertEquals(V3,1);
+		boolean I4=t.marcarImpacto(tablero, barcosEnemigo, 4, 5);
+		assertEquals(I4,true);
+		int V4=barcosEnemigo[4].getVida();
+		assertEquals(V4,0);
+		boolean I5=t.marcarImpacto(tablero, barcosEnemigo, 4, 4);
+		assertEquals(I5,false);
+		int V5=barcosEnemigo[4].getVida();
+		assertEquals(V5,0);
+		boolean H5=barcosEnemigo[4].isHundido();
+		assertEquals(H5,true);
+		assertEquals(t.getTablero()[4][4]," H");
+		assertEquals(t.getTablero()[4][5]," H");
+		boolean I6=t.marcarImpacto(tablero, barcosEnemigo, -1, 11);
+		assertEquals(I6,false);
+		boolean I7=t.marcarImpacto(tablero, barcosEnemigo, 4, 9);
+		assertEquals(I7,true);
+		boolean I8=t.marcarImpacto(tablero, barcosEnemigo, 0, 5);
+		assertEquals(I8,true);
+		t.mostrar();	
+	}
 }
