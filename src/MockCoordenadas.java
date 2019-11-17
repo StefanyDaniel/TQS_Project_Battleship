@@ -6,25 +6,31 @@ public class MockCoordenadas implements Coordenadas {
 	private Queue<Character> columnasChar = new LinkedList<>();
 	private Queue<Integer> columnasInt = new LinkedList<>();
 	private Queue<Character> orientaciones = new LinkedList<>();
-	private Queue<Integer> filasDisparo = new LinkedList<>();
-	private Queue<Character> columnasDisparoChar = new LinkedList<>();
-	private Queue<Integer> columnasDisparoInt = new LinkedList<>();
 	
 	public MockCoordenadas(Queue<Integer> qFilas, Queue<Character> qColumnasChar, Queue<Integer> qColumnasInt,
 			Queue<Character> qOrientaciones) {
+		//Para colocar los barcos
 		filas = qFilas;
 		columnasChar = qColumnasChar;
 		columnasInt = qColumnasInt;
 		orientaciones = qOrientaciones;
 	}
 	
+	public MockCoordenadas(Queue<Integer> qFilas, Queue<Character> qColumnasChar, Queue<Integer> qColumnasInt) {
+		//Para realizar disparos
+		filas = qFilas;
+		columnasChar = qColumnasChar;
+		columnasInt = qColumnasInt;
+	}
+	
 	public MockCoordenadas() {
+		//Colocar barcos y disparar
 		//filas
-		filas.add(4);
-		filas.add(2);
-		filas.add(9);
-		filas.add(6);
-		filas.add(0);
+		filas.add(5);
+		filas.add(3);
+		filas.add(10);
+		filas.add(5);
+		filas.add(1);
 		
 		//columnas char
 		columnasChar.add('a');
@@ -48,40 +54,40 @@ public class MockCoordenadas implements Coordenadas {
 		orientaciones.add('l');
 		
 		//filas disparo
-		filasDisparo.add(0);
-		filasDisparo.add(6);
-		filasDisparo.add(9);
-		filasDisparo.add(2);
-		filasDisparo.add(4);
-		filasDisparo.add(0);
-		filasDisparo.add(9);
-		filasDisparo.add(9);
-		filasDisparo.add(0);
-		filasDisparo.add(4);
+		filas.add(1);
+		filas.add(7);
+		filas.add(10);
+		filas.add(3);
+		filas.add(5);
+		filas.add(1);
+		filas.add(10);
+		filas.add(10);
+		filas.add(1);
+		filas.add(5);
 		
 		//columnas disparo char
-		columnasDisparoChar.add('a');
-		columnasDisparoChar.add('a');
-		columnasDisparoChar.add('j');
-		columnasDisparoChar.add('j');
-		columnasDisparoChar.add('e');
-		columnasDisparoChar.add('e');
-		columnasDisparoChar.add('a');
-		columnasDisparoChar.add('h');
-		columnasDisparoChar.add('j');
-		columnasDisparoChar.add('d');
+		columnasChar.add('a');
+		columnasChar.add('a');
+		columnasChar.add('j');
+		columnasChar.add('j');
+		columnasChar.add('e');
+		columnasChar.add('e');
+		columnasChar.add('a');
+		columnasChar.add('h');
+		columnasChar.add('j');
+		columnasChar.add('d');
 		
 		//columnas disparo int
-		columnasDisparoInt.add(0);
-		columnasDisparoInt.add(0);
-		columnasDisparoInt.add(9);
-		columnasDisparoInt.add(9);
-		columnasDisparoInt.add(4);
-		columnasDisparoInt.add(4);
-		columnasDisparoInt.add(0);
-		columnasDisparoInt.add(7);
-		columnasDisparoInt.add(9);
-		columnasDisparoInt.add(3);
+		columnasInt.add(0);
+		columnasInt.add(0);
+		columnasInt.add(9);
+		columnasInt.add(9);
+		columnasInt.add(4);
+		columnasInt.add(4);
+		columnasInt.add(0);
+		columnasInt.add(7);
+		columnasInt.add(9);
+		columnasInt.add(3);
 	}
 	
 	@Override
@@ -98,37 +104,41 @@ public class MockCoordenadas implements Coordenadas {
 	public void setOrientacion() {
 		//No hace nada
 	}
-
+	
 	@Override
 	public int getFila() {
+		System.out.println("Fila: " + filas.peek());
 		return filas.poll();
 	}
 
 	@Override
 	public char getColumnaChar() {
+		System.out.println("(char)Columna: " + columnasChar.peek());
 		return columnasChar.poll();
 	}
 	
-	@Override
-	public char getColumnasDisparoChar() {
-		return columnasDisparoChar.poll();
-	}
-
+	
 	@Override
 	public int getColumnaInt() {
+		System.out.println("(int)Columna: " + columnasInt.peek());
 		return columnasInt.poll();
 	}
 	
-	
-	@Override
-	public int getColumnaDisparoInt() {
-		return columnasDisparoInt.poll();
-	}
-
 	@Override
 	public char getOrientacion() {
+		System.out.println("(char)Orientacion: " + orientaciones.peek());
 		return orientaciones.poll();
 	}
 	
+	public Queue<Integer> getQFilas(){
+		return filas;
+	}
 	
+	public Queue<Integer> getQColumnasInt() {
+		return columnasInt;
+	}
+	
+	public Queue<Character> getQOrientaciones(){
+		return orientaciones;
+	}
 }
