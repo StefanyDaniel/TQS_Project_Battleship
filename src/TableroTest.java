@@ -1,6 +1,9 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import org.junit.jupiter.api.Test;
 
 class TableroTest {
@@ -8,6 +11,8 @@ class TableroTest {
 	Tablero t = new Tablero();
 	int numFilas=10;
 	int numColumnas=10;
+	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+	private final PrintStream originalOut = System.out;
 
 	@Test
 	public void testCrearTablero() {
@@ -55,6 +60,35 @@ class TableroTest {
 				assertEquals(tableroBarcos[i][j],tableroBarcosEsperado[i][j]);
 			}
 		}
+	}
+	@Test
+	public void testMostrar() {
+		String resultado = "----------------------------------\n" + 
+				"|  | A| B| C| D| E| F| G| H| I| J|\n" + 
+				"----------------------------------\n" + 
+				"| 1|  |  |  |  |  |  |  |  |  |  |\n" + 
+				"----------------------------------\n" + 
+				"| 2|  |  |  |  |  |  |  |  |  |  |\n" + 
+				"----------------------------------\n" + 
+				"| 3|  |  |  |  |  |  |  |  |  |  |\n" + 
+				"----------------------------------\n" + 
+				"| 4|  |  |  |  |  |  |  |  |  |  |\n" + 
+				"----------------------------------\n" + 
+				"| 5|  |  |  |  |  |  |  |  |  |  |\n" + 
+				"----------------------------------\n" + 
+				"| 6|  |  |  |  |  |  |  |  |  |  |\n" + 
+				"----------------------------------\n" + 
+				"| 7|  |  |  |  |  |  |  |  |  |  |\n" + 
+				"----------------------------------\n" + 
+				"| 8|  |  |  |  |  |  |  |  |  |  |\n" + 
+				"----------------------------------\n" + 
+				"| 9|  |  |  |  |  |  |  |  |  |  |\n" + 
+				"----------------------------------\n" + 
+				"|10|  |  |  |  |  |  |  |  |  |  |\n" + 
+				"----------------------------------\n";
+		System.setOut(new PrintStream(outContent));
+		t.mostrar();
+		assertEquals(resultado,outContent.toString());
 	}
 
 }
