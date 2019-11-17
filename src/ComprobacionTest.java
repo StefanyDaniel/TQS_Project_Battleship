@@ -92,5 +92,38 @@ class ComprobacionTest {
 		assertEquals(r7,false);
 		boolean r8 = comp.isOrientacionCorrecta(t, -11, -1, 'r', 5);
 		assertEquals(r8,false);
+		
+		//Altres casos
+				String[][] tableroNoVacio = { 
+						{"  ", "  ", "X ", "  ", "  ", "  ", "  ", "  ", "X ", "  "},//0
+						{"  ", "  ", "X ", "  ", "  ", "  ", "  ", "  ", "X ", "  "},//1
+						{"  ", "  ", "X ", "  ", "  ", "  ", "  ", "  ", "X ", "  "},//2
+						{"  ", "  ", "X ", "  ", "  ", "  ", "  ", "  ", "X ", "  "},//3
+						{"  ", "  ", "X ", "X ", "X ", "X ", "X ", "X ", "X ", "  "},//4
+						{"  ", "  ", "X ", "  ", "  ", "  ", "  ", "  ", "X ", "  "},//5
+						{"  ", "  ", "X ", "  ", "  ", "  ", "  ", "  ", "X ", "  "},//6
+						{"  ", "  ", "X ", "  ", "  ", "  ", "  ", "  ", "X ", "  "},//7
+						{"  ", "  ", "X ", "  ", "  ", "  ", "  ", "  ", "X ", "  "},//8
+						{"  ", "  ", "X ", "  ", "  ", "  ", "  ", "  ", "X ", "  "}//9
+						// 0     1     2     3     4     5     6     7     8     9
+				};
+				t.setTablero(tableroNoVacio);
+				boolean r9 = comp.isOrientacionCorrecta(t, 5, 3, 'u', 5);
+				assertEquals(r9,false);
+				boolean r10 = comp.isOrientacionCorrecta(t, 3, 4, 'd', 5);
+				assertEquals(r10,false);
+				boolean r15 = comp.isOrientacionCorrecta(t, 1, 5, 'l', 5);
+				assertEquals(r15,false);
+				boolean r16 = comp.isOrientacionCorrecta(t, 9, 1, 'r', 5);
+				assertEquals(r16,false);
+				
+				boolean r17 = comp.isOrientacionCorrecta(t, 4, 2, 'r', 5);
+				assertEquals(r17,false);
+				boolean r18 = comp.isOrientacionCorrecta(t, 9, 2, 'u', 5);
+				assertEquals(r18,false);
+				boolean r19 = comp.isOrientacionCorrecta(t, 2, 2, 'd', 5);
+				assertEquals(r19,false);
+				boolean r20 = comp.isOrientacionCorrecta(t, 4, 7, 'l', 5);
+				assertEquals(r20,false);
 	}
 }
