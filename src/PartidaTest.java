@@ -35,5 +35,43 @@ public class PartidaTest {
 		assertEquals(0,t);
 		assertEquals(1,e);
 	}
+	
+	@Test
+	public void testFinalPartida() {
+		boolean f = p.isFinalPartida();
+		assertEquals(false,f);
+		j1.setVida(0);
+		j2.setVida(5);
+		boolean f1 = p.isFinalPartida();
+		assertEquals(true,f1);
+		j1.setVida(5);
+		j2.setVida(0);
+		boolean f2 = p.isFinalPartida();
+		assertEquals(true,f2);
+		j1.setVida(5);
+		j2.setVida(1);
+		boolean f3 = p.isFinalPartida();
+		assertEquals(false,f3);
+		j1.setVida(1);
+		j2.setVida(5);
+		boolean f4 = p.isFinalPartida();
+		assertEquals(false,f4);
+		j1.setVida(-1);
+		j2.setVida(5);
+		boolean f5 = p.isFinalPartida();
+		assertEquals(false,f5);
+		j1.setVida(5);
+		j2.setVida(-1);
+		boolean f6 = p.isFinalPartida();
+		assertEquals(false,f6);
+		j1.setVida(6);
+		j2.setVida(0);
+		boolean f7 = p.isFinalPartida();
+		assertEquals(false,f7);
+		j1.setVida(0);
+		j2.setVida(6);
+		boolean f8 = p.isFinalPartida();
+		assertEquals(false,f8);
+	}
 
 }
