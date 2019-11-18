@@ -16,6 +16,7 @@ public class Menu {
 			System.out.println("4. Guardar partida");//Hacer, si da tiempo
 			System.out.println("5. Salir");
 			System.out.print("Introduce una opcion: ");
+			opcion = userInput.next().charAt(0);
 			
 			switch(opcion) {
 			case '1':
@@ -32,12 +33,14 @@ public class Menu {
 			case '4':
 				break;
 				
+			case '5':
+				break;
+			
 				default:
 					System.out.println("Introduce una opcion de las que muestra el menu!");
 			}
 			
-			opcion = userInput.next().charAt(0);
-		} while(opcion != 5);
+		} while(opcion != '5');
 		
 		userInput.close();
 		
