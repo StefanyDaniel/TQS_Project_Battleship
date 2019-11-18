@@ -36,6 +36,8 @@ public class Jugador {
 				int fila = coordenadas.getFila();
 				int columna = coordenadas.getColumnaInt();
 				char orientacion = coordenadas.getOrientacion();
+				//Como el usuario introduce para fila, valores entre 1 y 10
+				//tenemos que usar fila - 1 para poder acceder a las posiciones del tablero
 				if(Comprobacion.isOrientacionCorrecta(configuracionBarcos, fila - 1, columna, orientacion, barco.getLongitud())) {
 					configuracionBarcos.colocarBarco(fila - 1, columna, orientacion, barco.getLongitud(), barco.getAlias());
 					barcoColocado = true;
