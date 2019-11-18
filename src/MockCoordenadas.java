@@ -54,40 +54,52 @@ public class MockCoordenadas implements Coordenadas {
 		orientaciones.add('l');
 		
 		//filas disparo
-		filas.add(1);
+		filas.add(1);//Valor limite
 		filas.add(7);
-		filas.add(10);
+		filas.add(10);//valor frontera
 		filas.add(3);
 		filas.add(5);
-		filas.add(1);
-		filas.add(10);
-		filas.add(10);
-		filas.add(1);
+		filas.add(1);//valor frontera
+		filas.add(11);//valor limite
+		filas.add(10);//valor frontera
+		filas.add(10);//valor frontera
+		filas.add(1);//valor frontera
+		filas.add(9);//valor frontera
+		filas.add(2);//valor limite
 		filas.add(5);
+		filas.add(10);//
 		
 		//columnas disparo char
 		columnasChar.add('a');
 		columnasChar.add('a');
 		columnasChar.add('j');
 		columnasChar.add('j');
+		columnasChar.add('k');
 		columnasChar.add('e');
 		columnasChar.add('e');
 		columnasChar.add('a');
 		columnasChar.add('h');
 		columnasChar.add('j');
+		columnasChar.add('b');
+		columnasChar.add('i');
 		columnasChar.add('d');
+		columnasChar.add('i');//
 		
 		//columnas disparo int
+		columnasInt.add(0);//valor frontera
 		columnasInt.add(0);
-		columnasInt.add(0);
+		columnasInt.add(9);//valor limite
 		columnasInt.add(9);
-		columnasInt.add(9);
+		columnasInt.add(10);//valor limite
 		columnasInt.add(4);
 		columnasInt.add(4);
 		columnasInt.add(0);
 		columnasInt.add(7);
-		columnasInt.add(9);
+		columnasInt.add(9);//valor frontera
+		columnasInt.add(1);//valor limite
+		columnasInt.add(8);//valor limite
 		columnasInt.add(3);
+		columnasInt.add(8);//
 	}
 	
 	@Override
