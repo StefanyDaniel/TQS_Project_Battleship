@@ -23,7 +23,7 @@ public class Tablero {
 	}
 	
 	public void colocarBarco(int fila, int columna, char orientacion, int longitud, String alias) {
-		switch(orientacion) {
+		switch(orientacion) { //Siempre recibimos valores correctos
 		case 'u':
 			for(int i=fila-(longitud-1);i<fila+1;i++) {
 				tablero[i][columna]=alias;
@@ -68,7 +68,7 @@ public class Tablero {
 	
 	public boolean marcarImpacto(Tablero configuracionBarcosEnemigo, Barco[] barcosEnemigo, int fila, int columna) {
 		boolean impactoMarcado = false;		
-		
+		//Aqui no siempre recibimos valores correctos de fila y columna.
 		if(Comprobacion.isFilaCorrecta(fila)) {
 			if(Comprobacion.isColumnaCorrecta(columna)) {
 				if(tablero[fila][columna] == agua) {
@@ -99,6 +99,7 @@ public class Tablero {
 	}
 	
 	public void hundir(Tablero configuracionBarcosEnemigo, Barco bHundido) {
+		//Metodo testeado junto con marcarImpacto, metodo sencillo para test.
 		String[][] t = configuracionBarcosEnemigo.getTablero();
 		for(int fila=0; fila<numeroFilas; fila++) {
 			for(int columna=0; columna<numeroColumnas; columna++) {

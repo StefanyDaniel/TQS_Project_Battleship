@@ -15,7 +15,11 @@ class TableroTest {
 	private final PrintStream originalOut = System.out;
 
 	@Test
-	public void testCrearTablero() {
+	public void testCrearTablero() { 
+		//
+		//Comporbamos que la creación del tablero es correcta
+		//Statement Coverage.
+		//
 		String[][] tableroBarcosEsperado = {
 				{"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "},
 				{"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "},
@@ -37,6 +41,11 @@ class TableroTest {
 	}
 	@Test
 	public void testColocarBarco() {
+		//
+		//Solo recibimos valores interiores, por lo tanto comporvamos val.frontera
+		//y algun valor interior a frontera.
+		//Statement Coverage.
+		//
 		String[][] tableroBarcosEsperado = {
 				{"B1", "B1", "B1", "B1", "B1", "  ", "  ", "  ", "  ", "B4"},
 				{"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "B4"},
@@ -63,6 +72,10 @@ class TableroTest {
 	}
 	@Test
 	public void testMostrar() {
+		//
+		//Caixa negra para impresión del tablero, comporvamos el output.
+		//Statement Coverage.
+		//
 		String resultado = "----------------------------------\n" + 
 				"|  | A| B| C| D| E| F| G| H| I| J|\n" + 
 				"----------------------------------\n" + 
@@ -122,8 +135,11 @@ class TableroTest {
 	
 	@Test
 	public void testMarcarImpacto() {
+		//
+		//Varios test para marcar Impacto i Statement Coverage
+		//
 		Tablero tablero=new Tablero();
-		Barco[] barcosEnemigo = new Barco[] {
+		Barco[] barcosEnemigo = new Barco[] { 
                 new Barco("Barco", 5),
                 new Barco("Barco", 4),
                 new Barco("Barco", 3),
@@ -136,27 +152,27 @@ class TableroTest {
 		tablero.colocarBarco(0, 9, 'l', 3, "C3");
 		tablero.colocarBarco(4, 4, 'r', 2, "B2");
 		
-		boolean I=t.marcarImpacto(tablero, barcosEnemigo, 0, 0);
-		assertEquals(I,true);
+		boolean I=t.marcarImpacto(tablero, barcosEnemigo, 0, 0);//Valor frontera
+		assertEquals(I,true); 
 		int V=barcosEnemigo[0].getVida();
 		assertEquals(V,4);
-		boolean I1=t.marcarImpacto(tablero, barcosEnemigo, 9, 9);
-		assertEquals(I1,true);
+		boolean I1=t.marcarImpacto(tablero, barcosEnemigo, 9, 9);//Valor frontera
+		assertEquals(I1,true); 
 		int V1=barcosEnemigo[2].getVida();
 		assertEquals(V1,2);
-		boolean I2=t.marcarImpacto(tablero, barcosEnemigo, 9, 0);
-		assertEquals(I2,true);
+		boolean I2=t.marcarImpacto(tablero, barcosEnemigo, 9, 0);//Valor frontera
+		assertEquals(I2,true); 
 		int V2=barcosEnemigo[1].getVida();
 		assertEquals(V2,3);
 		boolean I3=t.marcarImpacto(tablero, barcosEnemigo, 4, 4);
-		assertEquals(I3,true);
+		assertEquals(I3,true); 
 		int V3=barcosEnemigo[4].getVida();
 		assertEquals(V3,1);
 		boolean I4=t.marcarImpacto(tablero, barcosEnemigo, 4, 5);
 		assertEquals(I4,true);
 		int V4=barcosEnemigo[4].getVida();
 		assertEquals(V4,0);
-		boolean I5=t.marcarImpacto(tablero, barcosEnemigo, 4, 4);
+		boolean I5=t.marcarImpacto(tablero, barcosEnemigo, 4, 4);//Condition Statement
 		assertEquals(I5,false);
 		int V5=barcosEnemigo[4].getVida();
 		assertEquals(V5,0);
@@ -164,13 +180,13 @@ class TableroTest {
 		assertEquals(H5,true);
 		assertEquals(t.getTablero()[4][4]," H");
 		assertEquals(t.getTablero()[4][5]," H");
-		boolean I6=t.marcarImpacto(tablero, barcosEnemigo, -1, 0);
+		boolean I6=t.marcarImpacto(tablero, barcosEnemigo, -1, 0);//Valor frontera exterior
 		assertEquals(I6,false);
-		boolean I7=t.marcarImpacto(tablero, barcosEnemigo, 4, 9);
+		boolean I7=t.marcarImpacto(tablero, barcosEnemigo, 4, 9);//Valor agua
 		assertEquals(I7,true);
-		boolean I8=t.marcarImpacto(tablero, barcosEnemigo, 0, 5);
+		boolean I8=t.marcarImpacto(tablero, barcosEnemigo, 0, 5);//Valor ya marcado
 		assertEquals(I8,true);
-		boolean I9=t.marcarImpacto(tablero, barcosEnemigo, 0, -1);
+		boolean I9=t.marcarImpacto(tablero, barcosEnemigo, 0, -1);//Valor forntera exterior
 		assertEquals(I9,false);
 	}
 }

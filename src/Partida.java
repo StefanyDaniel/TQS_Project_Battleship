@@ -14,6 +14,7 @@ public class Partida {
 		coordenadas = new EscanearCoordenadas();
 		Jugador j1 = new Jugador(1);
 		Jugador j2 = new Jugador(2);
+		setJugadors(j1,j2);
 		error = false;
 		
 	}
