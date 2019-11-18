@@ -25,7 +25,7 @@ public class Partida {
 	}
 	
 	public void empezar() {
-		Jugador j = new MockJugador(1);
+		Jugador j = new Jugador(1);
 		if(opcion == '1') {
 			jugador[0].setCoordenadas(coordenadas);
 			jugador[1].setCoordenadas(coordenadas);
