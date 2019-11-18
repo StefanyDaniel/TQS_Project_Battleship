@@ -20,6 +20,7 @@ public class Menu {
 			switch(opcion) {
 			case '1':
 				Partida p = new Partida(opcion);
+				p.empezar();
 				break;
 				
 			case '2':

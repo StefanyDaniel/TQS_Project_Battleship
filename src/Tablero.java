@@ -109,4 +109,7 @@ public class Tablero {
 			}
 		}
 	}
+	static int getNColumnas() {
+		return numeroColumnas;
+	}
 }

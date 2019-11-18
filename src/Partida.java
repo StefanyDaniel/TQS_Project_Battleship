@@ -11,7 +11,7 @@ public class Partida {
 		opcion = opcionMenu;
 		turno = 0;
 		enemigo = 1;
-		coordenadas = new EscanearCoordenadas();
+		coordenadas = new EscanerCoordenadas();
 		Jugador j1 = new Jugador(1);
 		Jugador j2 = new Jugador(2);
 		setJugadors(j1,j2);
@@ -25,7 +25,7 @@ public class Partida {
 	}
 	
 	public void empezar() {
-		Jugador j = new MockJugador(1); 
+		Jugador j = new MockJugador(1);
 		if(opcion == '1') {
 			jugador[0].setCoordenadas(coordenadas);
 			jugador[1].setCoordenadas(coordenadas);
@@ -36,6 +36,11 @@ public class Partida {
 				System.out.println("Te toca jugador " + this.jugador[turno].getId());
 				System.out.println("Configurando coordenadas de disparo...");
 				j.disparar(jugador[enemigo]);
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				cambiarTurno();
 			}
 		}

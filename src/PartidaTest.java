@@ -11,6 +11,8 @@ public class PartidaTest {
 	
 	@Test
 	public void testEmpezar() {
+		//Caixa Negra comparem output
+		//Path coverage
 		p.setJugadors(j1, j2);
 		p.empezar();
 		assertEquals(j1.getVida(),1);
@@ -24,6 +26,7 @@ public class PartidaTest {
 	
 	@Test
 	public void testCanviaTorn() {
+		//Caixa blanca
 		int t = p.getTurno();
 		int e = p.getTEnemigo();
 		assertEquals(0,t);
@@ -42,6 +45,8 @@ public class PartidaTest {
 	
 	@Test
 	public void testFinalPartida() {
+		//Caixa Negra
+		//Path coverage
 		p.setJugadors(j1, j2);
 		boolean f = p.isFinalPartida();
 		assertEquals(false,f);

@@ -5,6 +5,8 @@ public class EscanerCoordenadas implements Coordenadas {
 	private int columnaInt;
 	private char columnaChar;
 	private char orientacion;
+	private int numeroColumnas = 10;
+	private static final char[] valorColumnas = {'A','B','C','D','E','F','G','H','I','J'};
 	
 	public EscanerCoordenadas() {
 		this.fila = -1;
@@ -66,8 +68,8 @@ public class EscanerCoordenadas implements Coordenadas {
 		int charToInt = -1;
 		columna = Character.toLowerCase(columna);
 		
-		for(int i = 0; i < Tablero.numeroColumnas; i++) {
-			if(columna == Character.toLowerCase(Tablero.valorColumnas[i])) {
+		for(int i = 0; i < numeroColumnas; i++) {
+			if(columna == Character.toLowerCase(valorColumnas[i])) {
 				charToInt = i;
 			}
 		}
