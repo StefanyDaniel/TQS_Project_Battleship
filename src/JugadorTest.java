@@ -13,76 +13,103 @@ class JugadorTest {
 		Queue<Integer> columnasInt = new LinkedList<>();
 		Queue<Character> orientaciones = new LinkedList<>();
 		
-		//Test esquinas del tablero
-		//esquina 0, a
 		//Filas [1, 10]
 		//limites: 0, 2 ; 9, 11
 		//frontera: 1, 10
+		//esquina 0, a
+		
+		//Test esquinas del tablero
+		//Esquina 1,A
+		//fila, valor limite 0
+		//intenta colocar el carrier de longitud 5 en posicion horizontal hacia la derecha
 		filas.add(0);
 		columnasChar.add('a');
 		columnasInt.add(0);
 		orientaciones.add('r');
-
+		
+		//fila, valor frontera 1
+		//intenta colocar el carrier de longitud 5 en posicion vertical para arriba que no cabe
 		filas.add(1);
 		columnasChar.add('a');
 		columnasInt.add(0);
 		orientaciones.add('u');
 		
+		//fila, valor frontera 1
+		//intenta colocar el carrier de longitud 5 en posicion horizontal para la izquierda que no cabe
 		filas.add(1);
 		columnasChar.add('a');
 		columnasInt.add(0);
 		orientaciones.add('l');
 
+		//fila, valor limite 2
+		//intenta colocar el carrier de longitud 5 en posicion vertical para arriba que no cabe
 		filas.add(2);
 		columnasChar.add('a');
 		columnasInt.add(0);
 		orientaciones.add('u');		
 		
-		//esquina 0, j
+		//Test esquina 1, J
+		//fila, valor frontera 1
+		//intenta colocar el carrier de longitud 5 en posicion vertical para arriba que no cabe
 		filas.add(1);
 		columnasChar.add('j');
 		columnasInt.add(9);
 		orientaciones.add('u');
 		
+		//fila, valor frontera 1
+		//intenta colocar el carrier de longitud 5 en posicion horizontal hacia la derecha que no cabe
 		filas.add(1);
 		columnasChar.add('j');
 		columnasInt.add(9);
 		orientaciones.add('r');
 		
-		//esquina 9, j
+		//Test esquina 10, J
+		//fila, valor frontera 10
+		//intenta colocar el carrier de longitud 5 en posicion vertical hacia abajo que no cabe
 		filas.add(10);
 		columnasChar.add('j');
 		columnasInt.add(9);
 		orientaciones.add('d');
 		
+		//fila, valor frontera 10
+		//intenta colocar el carrier de longitud 5 en posicion horizontal hacia la derecha que no cabe
 		filas.add(10);
 		columnasChar.add('j');
 		columnasInt.add(9);
 		orientaciones.add('r');
 		
-		//esquina 9, a
+		//Test esquina 10, A
+		//fila, valor frontera 10
+		//intenta colocar el carrier de longitud 5 en posicion horizontal hacia la izquierda que no cabe
 		filas.add(10);
 		columnasChar.add('a');
 		columnasInt.add(0);
 		orientaciones.add('l');
 		
+		//fila, valor frontera 10
+		//intenta colocar el carrier de longitud 5 en posicion vertical hacia abajo que no cabe
 		filas.add(10);
 		columnasChar.add('a');
 		columnasInt.add(0);
 		orientaciones.add('d');
 		
+		//fila, valor limite 11
+		//intenta colocar el carrier de longitud 5 en posicion vertical hacia abajo que no cabe
 		filas.add(11);
 		columnasChar.add('a');
 		columnasInt.add(0);
 		orientaciones.add('d');
 		
-		//Se coloca Carrier 5
+		//fila, valor frontera 1
+		//coloca el carrier en posicion vertical hacia abajo
 		filas.add(1);
 		columnasChar.add('a');
 		columnasInt.add(0);
 		orientaciones.add('d');
 		
 		//Comprobar zonas laterales
+		//Lateral superior del tablero
+		//intenta colocar el battleship de longitud 4 orientado hacia arriba
 		filas.add(1);
 		columnasChar.add('e');
 		columnasInt.add(4);
@@ -93,109 +120,136 @@ class JugadorTest {
 		columnasInt.add(4);
 		orientaciones.add('u');
 		
+		//Lateral izquierdo del tablero
+		//intenta colocar el battleship de longitud 4 orientado hacia la izquierda
 		filas.add(5);
 		columnasChar.add('a');
 		columnasInt.add(0);
 		orientaciones.add('l');
 		
+		//battleship de longitud 4 orientado hacia la izquierda
 		filas.add(5);
 		columnasChar.add('b');
 		columnasInt.add(1);
 		orientaciones.add('l');
 		
+		//battleship de longitud 4 orientado hacia la izquierda
 		filas.add(6);
 		columnasChar.add('a');
 		columnasInt.add(0);
 		orientaciones.add('l');
 		
+		//battleship de longitud 4 orientado hacia la izquierda pero dejando libre una casilla respecto al lateral
+		//No cabe igualmente
 		filas.add(6);
 		columnasChar.add('b');
 		columnasInt.add(1);
 		orientaciones.add('l');
 		
+		//Comprobar lateral derecho
+		//battleship de longitud 4 orientado hacia la derecha
 		filas.add(5);
 		columnasChar.add('j');
 		columnasInt.add(9);
 		orientaciones.add('r');
 		
+		//COlocar el battleship de longitud 4 orientado hacia la derecha empezando por una casilla anterior al lateral
 		filas.add(5);
-		columnasChar.add('j');
-		columnasInt.add(9);
+		columnasChar.add('i');
+		columnasInt.add(8);
 		orientaciones.add('r');
 		
+		//Comprobar lateral inferior del tablero
+		//colocar el battleship de longitud 4 en vertical hacia abajo
 		filas.add(10);
 		columnasChar.add('e');
 		columnasInt.add(4);
 		orientaciones.add('d');
 		
+		//Colocar el battleship de longitud 4 hacia abajo pero que empiece en una casilla antes del lateral
 		filas.add(9);
 		columnasChar.add('e');
 		columnasInt.add(4);
 		orientaciones.add('d');
 		
-		
+		//Valor limite de columna k
+		//intentar colocar battleship de longitud 4
 		filas.add(5);
 		columnasChar.add('k');
 		columnasInt.add(10);
 		orientaciones.add('l');
 		
+		//Se coloca el battleship 4 pegado en el lateral izquierda con orientacion hacia la izquierda
 		filas.add(5);
 		columnasChar.add('j');
 		columnasInt.add(9);
 		orientaciones.add('l');
 		
-		//Comprobar si se solapan
+		//Comprobar si se solapan los barcos
+		//Intentar colocar un barco justo donde empieza otro
 		filas.add(5);
 		columnasChar.add('g');
 		columnasInt.add(6);
 		orientaciones.add('d');
 		
+		//Intentar colocar el Cruiser de longitud 3 justo donde termina el battleship
 		filas.add(5);
 		columnasChar.add('j');
 		columnasInt.add(9);
 		orientaciones.add('d');
 		
+		//Intentar colocar el Cruiser de longitud 3 donde la primera casilla es valida pero las siguientes no 
+		//(orientados los dos hacia la derecha)
 		filas.add(5);
 		columnasChar.add('f');
 		columnasInt.add(5);
 		orientaciones.add('r');
 		
+		//Intentar colocar el Cruiser de longitud 3 orientado hacia arriba y que se solape
 		filas.add(6);
 		columnasChar.add('g');
 		columnasInt.add(6);
 		orientaciones.add('u');
 		
+		//Intentar colocar el Cruiser de longitud 3 orientado hacia arriba y que se solape. justo en el lateral
 		filas.add(6);
 		columnasChar.add('j');
 		columnasInt.add(9);
 		orientaciones.add('u');
 		
+		//Se coloca el Cruiser de longitud 3
 		filas.add(9);
 		columnasChar.add('d');
 		columnasInt.add(3);
 		orientaciones.add('r');
 		
+		//Se intenta colocar el submarine de longitud 3 orientado hacia la izquierda, solapandose con otro
+		//la primera casilla es valida
 		filas.add(9);
 		columnasChar.add('g');
 		columnasInt.add(6);
 		orientaciones.add('l');
 		
+		//Se intenta colocar submarine de longitud 3 orientado hacia la izquierda
+		//las 2 primeras columnas son validas pero la tercera no
 		filas.add(9);
 		columnasChar.add('h');
 		columnasInt.add(7);
 		orientaciones.add('l');
 		
-		//terminar de colocar los barcos
+		//Intentar colocar el submarine de longitud 3 solapando una casilla hacia arriba
 		filas.add(7);
 		columnasChar.add('a');
 		columnasInt.add(0);
 		orientaciones.add('u');
 		
+		//Colocamos el submarine de longitud 3
 		filas.add(8);
 		columnasChar.add('a');
 		columnasInt.add(0);
 		orientaciones.add('u');
 		
+		//Colocamos el destroyer de longitud 2
 		filas.add(5);
 		columnasChar.add('e');
 		columnasInt.add(4);
@@ -215,15 +269,18 @@ class JugadorTest {
 	@Test
 	void testActualizarVida() {
 		Jugador jugador2 = new Jugador(2);
+		//Comprobar que cuando se crea un jugador la vida es 5(numero de barcos vivos)
 		jugador2.actualizarVida(jugador2);
 		assertEquals(5, jugador2.getVida());
 		
+		//Si un barco sufre un impacto pero no esta hundido la vida del jugador tiene que seguir siendo 5
 		jugador2.getBarcos()[0].actualizarVida();
 		jugador2.actualizarVida(jugador2);
 		assertEquals(5, jugador2.getVida());
 		
 		Jugador jugador = new Jugador(1);
 		int j = 0;
+		//Se comprueba que cuando se hunden todos los barcos del jugador, su vida sea 0
 		for(Barco barco : jugador.getBarcos()) {
 			for(int i = 0; i < barco.getLongitud(); i++) {
 				barco.actualizarVida();
@@ -238,8 +295,7 @@ class JugadorTest {
 	
 	@Test
 	void testDisparar() {
-		System.out.println("Test disparos");
-		
+		//Se colocan los barcos de jugador 1 y 2
 		MockCoordenadas mc1 = new MockCoordenadas();
 		Jugador jugador1 = new Jugador(1);
 		jugador1.setCoordenadas(mc1);
@@ -250,7 +306,8 @@ class JugadorTest {
 		jugador2.setCoordenadas(mc2);
 		jugador2.colocarBarcos();
 		
-		while(!mc1.getQFilas().isEmpty() && !mc1.getQColumnasInt().isEmpty()) {
+		//Los jugadores disparan sobre el tablero
+		while(!mc1.getQFilas().isEmpty() && !mc1.getQColumnasInt().isEmpty() && mc1.getQOrientaciones().isEmpty()) {
 			boolean disparoRealizado = jugador1.disparar(jugador2);
 			jugador2.disparar(jugador1);
 			assertEquals(true, disparoRealizado);
